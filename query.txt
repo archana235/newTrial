@@ -1,0 +1,48 @@
+SELECT s.sname , s.semester , c.course_name , e.exam_date from tbl_student as s INNER JOIN tbl_course as c ON s.courseid = c.courseid INNER JOIN tbl_exam e ON c.courseid = e.courseid
+
+
+select s.sname , s.semester , c.course_name , e.exam_type , r.Grade
+from tbl_student as s 
+LEFT JOIN tbl_course as c ON  c.sid = s.sid
+LEFT JOIN tbl_exam as e ON e.courseid = s. sid
+LEFT JOIN tbl_result as r ON r.sid = s.id 
+
+
+select s.sname , s.semester , c.course_name , e.exam_type , r.Grade
+from tbl_student as s ,tbl_course as c, tbl_exam as e , tbl_result as r
+where s.sid = c.sid and e.sid = r.sid
+
+
+select * from tbl_student
+INNER JOIN tbl_course
+ON tbl_student.sid = tbl_course.sid
+INNER JOIN tbl_exam
+ON tbl_course.sid = tbl_exam.sid
+INNER JOIN tbl_result
+ON tbl_exam.sid = tbl_result.sid
+*********Running mode********************
+select tbl_student.sid , tbl_student.sname, tbl_student.semester,tbl_course.course_name , tbl_exam.exam_type 
+, tbl_result.Grade from tbl_student
+INNER JOIN tbl_course
+ON tbl_student.sid = tbl_course.sid
+INNER JOIN tbl_exam
+ON tbl_course.sid = tbl_exam.sid
+INNER JOIN tbl_result
+ON tbl_exam.sid = tbl_result.sid
+
+
+*******************************************************
+select student_result.exam_id, student_result.stu_course_id ,
+ student_result.grade, tbl_exam.start, tbl_exam.end, tbl_exam.name 
+ from student_result INNER JOIN tbl_exam ON student_result.exam_id 
+ = tbl_exam.exam_id
+******************************************************
+select * from tbl_student INNER JOIN student_course on tbl_student.sid = student_course.sid
+
+
+*********************************
+select tbl_student.sname, tbl_course.c_name from tbl_student INNER JOIN student_course 
+on tbl_student.sid = student_course.sid INNER JOIN tbl_course
+on student_course.course_id = tbl_course.course_id
+ 
+ 
